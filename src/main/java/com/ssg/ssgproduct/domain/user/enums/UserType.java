@@ -1,4 +1,4 @@
-package com.ssg.ssgproduct.domain.user;
+package com.ssg.ssgproduct.domain.user.enums;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

@@ -1,10 +1,12 @@
-package com.ssg.ssgproduct.domain.user;
+package com.ssg.ssgproduct.domain.user.enums;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum UserStat {
     NORMAL("정상"),
     QUIT("탈퇴");

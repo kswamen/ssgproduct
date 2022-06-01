@@ -1,8 +1,7 @@
-package com.ssg.ssgproduct.domain.user;
+package com.ssg.ssgproduct.domain.user.enums;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-import java.util.Arrays;
 
 @Converter
 public class UserTypeConverter implements AttributeConverter<UserType, String> {
