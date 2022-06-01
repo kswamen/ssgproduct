@@ -3,12 +3,12 @@ package com.ssg.ssgproduct.domain.user.dtos;
 import com.ssg.ssgproduct.domain.user.User;
 import com.ssg.ssgproduct.domain.user.enums.UserStat;
 import com.ssg.ssgproduct.domain.user.enums.UserType;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class UserPostRequestDto {
     public String userName;
@@ -24,7 +24,7 @@ public class UserPostRequestDto {
     }
 
     public User toEntity() {
-        convert();
+//        convert();
         return User.builder()
                 .userName(userName)
                 .userType(convertedUserType)

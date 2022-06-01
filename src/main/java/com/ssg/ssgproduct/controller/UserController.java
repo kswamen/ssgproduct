@@ -1,5 +1,6 @@
 package com.ssg.ssgproduct.controller;
 
+import com.ssg.ssgproduct.domain.user.dtos.UserDeleteRequestDto;
 import com.ssg.ssgproduct.domain.user.dtos.UserGetRequestDto;
 import com.ssg.ssgproduct.domain.user.dtos.UserPostRequestDto;
 import com.ssg.ssgproduct.service.UserService;
@@ -22,5 +23,10 @@ public class UserController {
     public ResponseEntity<Object> createUser(@RequestBody UserPostRequestDto userPostDto) {
         userPostDto.convert();
         return userService.save(userPostDto);
+    }
+
+    @DeleteMapping("")
+    public ResponseEntity<Object> deleteUser(@RequestBody UserDeleteRequestDto userDeleteDto) {
+        return userService.delete(userDeleteDto);
     }
 }

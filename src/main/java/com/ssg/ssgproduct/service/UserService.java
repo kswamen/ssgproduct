@@ -19,7 +19,8 @@ public class UserService {
 
     @Transactional
     public ResponseEntity<Object> save(UserPostRequestDto userPostDto) {
-        return CustomResponse.create("OK", HttpStatus.OK, userRepository.save(userPostDto.toEntity()));
+        User user = userRepository.save(userPostDto.toEntity());
+        return CustomResponse.create("OK", HttpStatus.OK, user.convertToResponseDto());
     }
 
     @Transactional

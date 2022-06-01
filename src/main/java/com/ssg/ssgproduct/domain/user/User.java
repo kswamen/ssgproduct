@@ -1,6 +1,6 @@
 package com.ssg.ssgproduct.domain.user;
 
-import com.ssg.ssgproduct.domain.user.dtos.UserResponseDto;
+import com.ssg.ssgproduct.domain.user.dtos.UserPostResponseDto;
 import com.ssg.ssgproduct.domain.user.enums.UserStat;
 import com.ssg.ssgproduct.domain.user.enums.UserStatConverter;
 import com.ssg.ssgproduct.domain.user.enums.UserType;
@@ -25,12 +25,12 @@ public class User {
 //    @Enumerated(EnumType.STRING)
     @Convert(converter = UserTypeConverter.class)
 //    @Column
-    private com.ssg.ssgproduct.domain.user.enums.UserType UserType;
+    private UserType UserType;
 
 //    @Enumerated(EnumType.STRING)
     @Convert(converter = UserStatConverter.class)
 //    @Column
-    private com.ssg.ssgproduct.domain.user.enums.UserStat UserStat;
+    private UserStat UserStat;
 
     @Builder
     public User(Long userId, String userName, UserType userType, UserStat userStat) {
@@ -40,8 +40,8 @@ public class User {
         UserStat = userStat;
     }
 
-    public UserResponseDto convertToResponseDto() {
-        return UserResponseDto.builder()
+    public UserPostResponseDto convertToResponseDto() {
+        return UserPostResponseDto.builder()
                 .userId(UserId)
                 .userName(UserName)
                 .userType(UserType.getUserTypeString())
