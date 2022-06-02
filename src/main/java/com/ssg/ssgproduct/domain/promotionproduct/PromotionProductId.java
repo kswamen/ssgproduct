@@ -1,10 +1,9 @@
-package com.ssg.ssgproduct.domain.promotion.promotionproduct;
+package com.ssg.ssgproduct.domain.promotionproduct;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.sql.DataSourceDefinition;
 import java.io.Serializable;
 
 @Data

@@ -1,4 +1,4 @@
-package com.ssg.ssgproduct.domain.promotion.promotionproduct;
+package com.ssg.ssgproduct.domain.promotionproduct;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssg.ssgproduct.domain.product.Product;

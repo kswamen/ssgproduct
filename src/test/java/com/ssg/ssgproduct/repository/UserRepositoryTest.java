@@ -2,29 +2,18 @@ package com.ssg.ssgproduct.repository;
 
 import com.ssg.ssgproduct.domain.user.User;
 import com.ssg.ssgproduct.domain.user.UserRepository;
-import com.ssg.ssgproduct.domain.user.dtos.UserPostRequestDto;
 import com.ssg.ssgproduct.domain.user.enums.UserStat;
 import com.ssg.ssgproduct.domain.user.enums.UserType;
-import com.ssg.ssgproduct.service.UserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)

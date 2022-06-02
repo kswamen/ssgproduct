@@ -1,16 +1,10 @@
 package com.ssg.ssgproduct.service;
 
-import com.ssg.ssgproduct.domain.product.Product;
-import com.ssg.ssgproduct.domain.product.ProductRepository;
-import com.ssg.ssgproduct.domain.product.dtos.ProductDeleteRequestDto;
-import com.ssg.ssgproduct.domain.product.dtos.ProductPostRequestDto;
 import com.ssg.ssgproduct.domain.promotion.Promotion;
 import com.ssg.ssgproduct.domain.promotion.PromotionRepository;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionDeleteRequestDto;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionGetRequestDto;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionPostRequestDto;
-import com.ssg.ssgproduct.domain.promotion.promotionproduct.PromotionProduct;
-import com.ssg.ssgproduct.domain.promotion.promotionproduct.dtos.PromotionProductPostRequestDto;
 import com.ssg.ssgproduct.util.CustomResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

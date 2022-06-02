@@ -1,4 +1,4 @@
-package com.ssg.ssgproduct.domain.promotion.promotionproduct.dtos;
+package com.ssg.ssgproduct.domain.promotionproduct.dtos;
 
 import com.ssg.ssgproduct.domain.product.Product;
 import com.ssg.ssgproduct.domain.promotion.Promotion;

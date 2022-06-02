@@ -1,14 +1,8 @@
 package com.ssg.ssgproduct.controller;
 
-import com.ssg.ssgproduct.domain.product.dtos.ProductDeleteRequestDto;
-import com.ssg.ssgproduct.domain.product.dtos.ProductPostRequestDto;
-import com.ssg.ssgproduct.domain.promotion.PromotionRepository;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionDeleteRequestDto;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionGetRequestDto;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionPostRequestDto;
-import com.ssg.ssgproduct.domain.promotion.promotionproduct.dtos.PromotionProductPostRequestDto;
-import com.ssg.ssgproduct.domain.user.dtos.UserGetRequestDto;
-import com.ssg.ssgproduct.service.ProductService;
 import com.ssg.ssgproduct.service.PromotionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

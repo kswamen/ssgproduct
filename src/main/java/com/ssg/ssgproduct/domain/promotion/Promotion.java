@@ -2,11 +2,10 @@ package com.ssg.ssgproduct.domain.promotion;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionPostResponseDto;
-import com.ssg.ssgproduct.domain.promotion.promotionproduct.PromotionProduct;
+import com.ssg.ssgproduct.domain.promotionproduct.PromotionProduct;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;

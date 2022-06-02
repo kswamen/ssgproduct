@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssg.ssgproduct.domain.product.dtos.ProductPostResponseDto;
 import com.ssg.ssgproduct.domain.product.enums.ProductType;
 import com.ssg.ssgproduct.domain.product.enums.ProductTypeConverter;
-import com.ssg.ssgproduct.domain.promotion.promotionproduct.PromotionProduct;
+import com.ssg.ssgproduct.domain.promotionproduct.PromotionProduct;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -6,7 +6,6 @@ import com.ssg.ssgproduct.domain.user.dtos.UserDeleteRequestDto;
 import com.ssg.ssgproduct.domain.user.dtos.UserPostRequestDto;
 import com.ssg.ssgproduct.domain.user.enums.UserStat;
 import com.ssg.ssgproduct.domain.user.enums.UserType;
-import com.ssg.ssgproduct.service.UserService;
 import com.ssg.ssgproduct.util.CustomResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,15 +16,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.CoreMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
@@ -47,7 +43,7 @@ class UserServiceTest {
 
         // then
         verify(userRepository, times(1)).save(any());
-        assertThat(result, equalTo(CustomResponse.create("OK", HttpStatus.OK, user)));
+        assertThat(result.getStatusCode(), equalTo(HttpStatus.OK));
     }
 
     @Test

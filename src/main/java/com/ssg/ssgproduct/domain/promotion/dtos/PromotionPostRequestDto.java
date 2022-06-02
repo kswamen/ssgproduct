@@ -1,7 +1,7 @@
 package com.ssg.ssgproduct.domain.promotion.dtos;
 
 import com.ssg.ssgproduct.domain.promotion.Promotion;
-import com.ssg.ssgproduct.domain.promotion.promotionproduct.PromotionProduct;
+import com.ssg.ssgproduct.domain.promotionproduct.PromotionProduct;
 import com.ssg.ssgproduct.util.CustomLocalDateConverter;
 import lombok.*;
 
