@@ -24,7 +24,7 @@ class PromotionRepositoryTest {
     private PromotionRepository promotionRepository;
 
     @Test
-    @DisplayName("Repository - 상품 생성")
+    @DisplayName("Repository - 프로모션 생성")
     public void save() {
         // given
         Promotion promotion = createPromotion();
@@ -37,7 +37,7 @@ class PromotionRepositoryTest {
     }
 
     @Test
-    @DisplayName("Repository - 상품 삭제")
+    @DisplayName("Repository - 프로모션 삭제")
     public void delete() {
         // given
         Promotion promotion = createPromotion();
