@@ -28,7 +28,7 @@ public class ProductService {
     }
 
     public ResponseEntity<Object> delete(ProductDeleteRequestDto productDeleteDto) {
-        Product product = productRepository.findById(productDeleteDto.getItemId()).orElseThrow();
+        Product product = productRepository.findById(productDeleteDto.getProductId()).orElseThrow();
         productRepository.delete(product);
         return CustomResponse.create("OK", HttpStatus.OK, productDeleteDto);
     }

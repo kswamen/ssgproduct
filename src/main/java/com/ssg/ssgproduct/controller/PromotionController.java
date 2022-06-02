@@ -31,12 +31,6 @@ public class PromotionController {
         return promotionService.save(promotionPostDto);
     }
 
-    @PostMapping("/relatedProduct")
-    public ResponseEntity<Object> updatePromotionProduct(
-            @RequestBody PromotionProductPostRequestDto promotionProductPostDto) {
-        return promotionService.updatePromotionProduct(promotionProductPostDto);
-    }
-
     @DeleteMapping("")
     public ResponseEntity<Object> deletePromotion(@RequestBody PromotionDeleteRequestDto promotionDeleteDto) {
         return promotionService.delete(promotionDeleteDto);

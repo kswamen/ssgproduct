@@ -10,5 +10,5 @@ import lombok.*;
 @ToString
 public class PromotionProductPostRequestDto {
     public Long promotionId;
-    public String itemId;
+    public Long productId;
 }

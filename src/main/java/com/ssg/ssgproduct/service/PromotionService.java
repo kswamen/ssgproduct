@@ -35,16 +35,6 @@ public class PromotionService {
         return CustomResponse.create("OK", HttpStatus.OK, promotion.convertToResponseDto());
     }
 
-    // 프로모션 연관 상품 저장 및 업데이트
-    @Transactional
-    public ResponseEntity<Object> updatePromotionProduct(PromotionProductPostRequestDto promotionProductPostDto) {
-        Promotion promotion = promotionRepository.findById(promotionProductPostDto.getPromotionId()).orElseThrow();
-        promotion.getPromotionProduct().updateItemId(promotionProductPostDto.getItemId());
-
-        promotionRepository.save(promotion);
-        return CustomResponse.create("OK", HttpStatus.OK, promotion.getPromotionProduct());
-    }
-
     @Transactional
     public ResponseEntity<Object> delete(PromotionDeleteRequestDto promotionDeleteDto) {
 //        Promotion promotion = promotionRepository.findById(promotionDeleteDto.getPromotionId()).orElseThrow();

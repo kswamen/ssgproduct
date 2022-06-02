@@ -1,5 +1,6 @@
 package com.ssg.ssgproduct.domain.promotion;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionPostResponseDto;
 import com.ssg.ssgproduct.domain.promotion.promotionproduct.PromotionProduct;
 import lombok.Builder;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -33,9 +35,9 @@ public class Promotion {
     @Column
     private LocalDate PromotionEndDate;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "promotion")
-//    @PrimaryKeyJoinColumn
-    private PromotionProduct promotionProduct;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "promotion")
+    @JsonIgnore
+    private List<PromotionProduct> promotionProducts;
 
     @Builder
     public Promotion(Long promotionId, String promotionNm, Long discountAmount, Float discountRate,
@@ -47,8 +49,6 @@ public class Promotion {
         this.DiscountRate = discountRate;
         this.PromotionStartDate = promotionStartDate;
         this.PromotionEndDate = promotionEndDate;
-        this.promotionProduct = promotionProduct;
-        this.promotionProduct.setPromotion(this);
     }
 
     public PromotionPostResponseDto convertToResponseDto() {

@@ -1,15 +1,17 @@
 package com.ssg.ssgproduct.domain.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ssg.ssgproduct.domain.product.dtos.ProductPostResponseDto;
-import com.ssg.ssgproduct.domain.product.enums.ItemType;
-import com.ssg.ssgproduct.domain.product.enums.ItemTypeConverter;
+import com.ssg.ssgproduct.domain.product.enums.ProductType;
+import com.ssg.ssgproduct.domain.product.enums.ProductTypeConverter;
+import com.ssg.ssgproduct.domain.promotion.promotionproduct.PromotionProduct;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,42 +19,46 @@ import java.time.LocalDate;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ItemId;
+    private Long ProductId;
 
     @Column
-    private String ItemName;
+    private String ProductName;
 
-    @Convert(converter = ItemTypeConverter.class)
-    private ItemType ItemType;
-
-    @Column
-    private Long ItemPrice;
+    @Convert(converter = ProductTypeConverter.class)
+    private ProductType ProductType;
 
     @Column
-    private LocalDate ItemDisplayStartTime;
+    private Long ProductPrice;
 
     @Column
-    private LocalDate ItemDisplayEndTime;
+    private LocalDate ProductDisplayStartTime;
+
+    @Column
+    private LocalDate ProductDisplayEndTime;
+
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    private List<PromotionProduct> promotionProducts;
 
     @Builder
-    public Product(Long itemId, String itemName, ItemType itemType, Long itemPrice,
-                   LocalDate itemDisplayStartTime, LocalDate itemDisplayEndTime) {
-        ItemId = itemId;
-        ItemName = itemName;
-        ItemType = itemType;
-        ItemPrice = itemPrice;
-        ItemDisplayStartTime = itemDisplayStartTime;
-        ItemDisplayEndTime = itemDisplayEndTime;
+    public Product(Long productId, String productName, ProductType productType, Long productPrice,
+                   LocalDate productDisplayStartTime, LocalDate productDisplayEndTime) {
+        this.ProductId = productId;
+        this.ProductName = productName;
+        this.ProductType = productType;
+        this.ProductPrice = productPrice;
+        this.ProductDisplayStartTime = productDisplayStartTime;
+        this.ProductDisplayEndTime = productDisplayEndTime;
     }
 
     public ProductPostResponseDto convertToResponseDto() {
         return ProductPostResponseDto.builder()
-                .itemId(ItemId)
-                .itemName(ItemName)
-                .itemType(ItemType.getItemTypeString())
-                .itemPrice(ItemPrice)
-                .itemDisplayStartDate(ItemDisplayStartTime)
-                .itemDisplayEndDate(ItemDisplayEndTime)
+                .productId(ProductId)
+                .productName(ProductName)
+                .productType(ProductType.getItemTypeString())
+                .productPrice(ProductPrice)
+                .productDisplayStartDate(ProductDisplayStartTime)
+                .productDisplayEndDate(ProductDisplayEndTime)
                 .build();
     }
 }

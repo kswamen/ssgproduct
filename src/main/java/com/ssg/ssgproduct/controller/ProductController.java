@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("")
-    public ResponseEntity<Object> readProduct(@RequestBody UserGetRequestDto userGetDto) {
-        return null;
-    }
+//    @GetMapping("")
+//    public ResponseEntity<Object> readProduct(@RequestBody UserGetRequestDto userGetDto) {
+//        return null;
+//    }
 
     @PostMapping("")
     public ResponseEntity<Object> createProduct(@RequestBody ProductPostRequestDto productPostDto) {

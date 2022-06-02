@@ -1,5 +1,7 @@
 package com.ssg.ssgproduct.domain.promotion.promotionproduct.dtos;
 
+import com.ssg.ssgproduct.domain.product.Product;
+import com.ssg.ssgproduct.domain.promotion.Promotion;
 import lombok.*;
 
 @Getter
@@ -8,6 +10,6 @@ import lombok.*;
 @Builder
 @ToString
 public class PromotionProductPostResponseDto {
-    public Long promotionId;
-    public String itemId;
+    public Promotion promotion;
+    public Product product;
 }
