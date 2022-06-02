@@ -1,4 +1,4 @@
-package com.ssg.ssgproduct.domain.user.dtos;
+package com.ssg.ssgproduct.domain.customer.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,6 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserGetRequestDto {
-    public Long userId;
+public class CustomerGetRequestDto {
+    public Long customerId;
 }

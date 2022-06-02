@@ -2,10 +2,7 @@ package com.ssg.ssgproduct.controller;
 
 import com.ssg.ssgproduct.domain.product.dtos.ProductDeleteRequestDto;
 import com.ssg.ssgproduct.domain.product.dtos.ProductPostRequestDto;
-import com.ssg.ssgproduct.domain.user.dtos.UserGetRequestDto;
-import com.ssg.ssgproduct.domain.user.dtos.UserPostRequestDto;
 import com.ssg.ssgproduct.service.ProductService;
-import com.ssg.ssgproduct.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
