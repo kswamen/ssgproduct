@@ -2,8 +2,8 @@ package com.ssg.ssgproduct.repository;
 
 import com.ssg.ssgproduct.domain.customer.Customer;
 import com.ssg.ssgproduct.domain.customer.CustomerRepository;
-import com.ssg.ssgproduct.domain.customer.enums.CustomerStat;
-import com.ssg.ssgproduct.domain.customer.enums.CustomerType;
+import com.ssg.ssgproduct.util.EntityCreator;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import java.util.Optional;
 
+import static com.ssg.ssgproduct.util.EntityCreator.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -52,12 +53,5 @@ class CustomerRepositoryTest {
         assertThat(result.isEmpty(), equalTo(true));
     }
 
-    private Customer createUser() {
-        return Customer.builder()
-//                .userId(1L)
-                .customerName("김석원")
-                .customerStat(CustomerStat.NORMAL)
-                .customerType(CustomerType.NORMAL)
-                .build();
-    }
+
 }

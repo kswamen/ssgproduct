@@ -21,7 +21,7 @@ public class ProductController {
 
     @GetMapping("/relatedPromotion")
     public ResponseEntity<Object> findAllRelatedPromotion(@RequestBody ProductGetRequestDto productGetDto) {
-        return productService.findAllRelatedPromotion(productGetDto);
+        return productService.findRelatedPromotion(productGetDto);
     }
 
     @PostMapping("")

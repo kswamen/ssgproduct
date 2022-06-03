@@ -4,8 +4,7 @@ import com.ssg.ssgproduct.domain.customer.Customer;
 import com.ssg.ssgproduct.domain.customer.CustomerRepository;
 import com.ssg.ssgproduct.domain.customer.dtos.CustomerDeleteRequestDto;
 import com.ssg.ssgproduct.domain.customer.dtos.CustomerPostRequestDto;
-import com.ssg.ssgproduct.domain.customer.enums.CustomerStat;
-import com.ssg.ssgproduct.domain.customer.enums.CustomerType;
+import com.ssg.ssgproduct.domain.product.ProductRepository;
 import com.ssg.ssgproduct.exception.ResponseCode;
 import com.ssg.ssgproduct.util.CustomResponse;
 import org.junit.jupiter.api.DisplayName;
@@ -19,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Optional;
 
+import static com.ssg.ssgproduct.util.EntityCreator.createUser;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -31,6 +31,9 @@ class CustomerServiceTest {
 
     @Mock
     private CustomerRepository customerRepository;
+
+    @Mock
+    private ProductRepository productRepository;
 
     @Test
     @DisplayName("Service - 유저 생성")
@@ -63,15 +66,25 @@ class CustomerServiceTest {
         assertThat(result, equalTo(CustomResponse.create(ResponseCode.OK, customerDeleteRequestDto)));
     }
 
-
-    private Customer createUser() {
-        return Customer.builder()
-//                .userId(1L)
-                .customerName("김석원")
-                .customerStat(CustomerStat.NORMAL)
-                .customerType(CustomerType.NORMAL)
-                .build();
-    }
+//    @Test
+//    @DisplayName("Service - 유저가 구매할 수 있는 모든 상품 조회")
+//    public void findAllAvailProduct() {
+//        // given
+//        CustomerGetRequestDto customerGetRequestDto = new CustomerGetRequestDto(1L);
+//        Customer user = createUser(CustomerStat.NORMAL, CustomerType.NORMAL);
+//        List<Product> product = List.of(createProduct(ProductType.NORMAL), createProduct(ProductType.NORMAL));
+//
+//        when(customerRepository.findById(any())).thenReturn(Optional.of(user));
+//        when(productRepository.findAll(any(Specification))).thenReturn(product);
+//
+//        // then
+//        ResponseEntity<Object> result = customerService.findAllAvailProduct(customerGetRequestDto);
+//
+//        // then
+//        verify(customerRepository, times(1)).findById(any());
+//        verify(productRepository, times(1)).findAll();
+//        assertThat(result.getStatusCode(), equalTo(ResponseCode.OK.getStatus()));
+//    }
 
     private CustomerPostRequestDto createUserDto() {
         return CustomerPostRequestDto.builder()

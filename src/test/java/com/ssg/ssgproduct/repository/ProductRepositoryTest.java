@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import static com.ssg.ssgproduct.util.EntityCreator.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -41,7 +42,7 @@ class ProductRepositoryTest {
     }
 
     @Test
-    @DisplayName("Repository - 조건에 맞는 상품 전부 검색")
+    @DisplayName("Repository - 기업회원상품이 아닌 상품 검색")
     public void findAllProduct() {
         // given
         Product product1 = productRepository.save(createProduct(ProductType.ENTERPRISE));
@@ -73,23 +74,5 @@ class ProductRepositoryTest {
         assertThat(result.isEmpty(), equalTo(true));
     }
 
-    private Product createProduct() {
-        return Product.builder()
-                .productName("노브랜드 버터링")
-                .productType(ProductType.ENTERPRISE)
-                .productPrice(20000L)
-                .productDisplayStartTime(LocalDate.of(2022, 1, 1))
-                .productDisplayEndTime(LocalDate.of(2099, 6, 2))
-                .build();
-    }
 
-    private Product createProduct(ProductType type) {
-        return Product.builder()
-                .productName("노브랜드 버터링")
-                .productType(type)
-                .productPrice(20000L)
-                .productDisplayStartTime(LocalDate.of(2022, 1, 1))
-                .productDisplayEndTime(LocalDate.of(2099, 6, 2))
-                .build();
-    }
 }

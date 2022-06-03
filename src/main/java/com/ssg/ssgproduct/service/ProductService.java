@@ -53,7 +53,7 @@ public class ProductService {
         return CustomResponse.create(ResponseCode.OK, productDeleteDto);
     }
 
-    public ResponseEntity<Object> findAllRelatedPromotion(ProductGetRequestDto productGetDto) {
+    public ResponseEntity<Object> findRelatedPromotion(ProductGetRequestDto productGetDto) {
         Product product = productRepository.findById(productGetDto.getProductId()).orElseThrow(
                 () -> new ProductNotFoundException(ResponseCode.PRODUCT_NOT_FOUND)
         );
