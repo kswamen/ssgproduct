@@ -1,6 +1,7 @@
 package com.ssg.ssgproduct.controller;
 
 import com.ssg.ssgproduct.domain.product.dtos.ProductDeleteRequestDto;
+import com.ssg.ssgproduct.domain.product.dtos.ProductGetRequestDto;
 import com.ssg.ssgproduct.domain.product.dtos.ProductPostRequestDto;
 import com.ssg.ssgproduct.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,11 @@ public class ProductController {
 //    public ResponseEntity<Object> readProduct(@RequestBody UserGetRequestDto userGetDto) {
 //        return null;
 //    }
+
+    @GetMapping("/relatedPromotion")
+    public ResponseEntity<Object> findAllRelatedPromotion(@RequestBody ProductGetRequestDto productGetDto) {
+        return productService.findAllRelatedPromotion(productGetDto);
+    }
 
     @PostMapping("")
     public ResponseEntity<Object> createProduct(@RequestBody ProductPostRequestDto productPostDto) {

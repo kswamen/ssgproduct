@@ -24,7 +24,7 @@ public class CustomerController {
 
     @GetMapping("/availProducts")
     public ResponseEntity<Object> readAvailProducts(@RequestBody CustomerGetRequestDto customerGetDto) {
-        return productService.findAllAvailProduct(customerGetDto);
+        return customerService.findAllAvailProduct(customerGetDto);
     }
 
 

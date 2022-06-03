@@ -23,7 +23,7 @@ public class PromotionProduct {
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    @JoinColumn(name = "ItemId")
+    @JoinColumn(name = "ProductId")
     private Product product;
 
     @Builder

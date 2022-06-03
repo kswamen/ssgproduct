@@ -36,7 +36,7 @@ public class Product {
     @Column
     private LocalDate ProductDisplayEndTime;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<PromotionProduct> promotionProducts;
 

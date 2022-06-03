@@ -1,5 +1,6 @@
 package com.ssg.ssgproduct.service;
 
+import com.ssg.ssgproduct.domain.product.dtos.ProductGetRequestDto;
 import com.ssg.ssgproduct.domain.promotion.Promotion;
 import com.ssg.ssgproduct.domain.promotion.PromotionRepository;
 import com.ssg.ssgproduct.domain.promotion.dtos.PromotionDeleteRequestDto;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor

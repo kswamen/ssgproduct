@@ -89,7 +89,7 @@ class ProductRepositoryTest {
                 .productType(type)
                 .productPrice(20000L)
                 .productDisplayStartTime(LocalDate.of(2022, 1, 1))
-                .productDisplayEndTime(LocalDate.of(2022, 6, 2))
+                .productDisplayEndTime(LocalDate.of(2099, 6, 2))
                 .build();
     }
 }
