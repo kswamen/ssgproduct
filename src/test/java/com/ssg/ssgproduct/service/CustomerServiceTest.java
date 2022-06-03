@@ -6,6 +6,7 @@ import com.ssg.ssgproduct.domain.customer.dtos.CustomerDeleteRequestDto;
 import com.ssg.ssgproduct.domain.customer.dtos.CustomerPostRequestDto;
 import com.ssg.ssgproduct.domain.customer.enums.CustomerStat;
 import com.ssg.ssgproduct.domain.customer.enums.CustomerType;
+import com.ssg.ssgproduct.exception.ResponseCode;
 import com.ssg.ssgproduct.util.CustomResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -59,7 +60,7 @@ class CustomerServiceTest {
 
         // then
         verify(customerRepository, times(1)).delete(any());
-        assertThat(result, equalTo(CustomResponse.create("OK", HttpStatus.OK, customerDeleteRequestDto)));
+        assertThat(result, equalTo(CustomResponse.create(ResponseCode.OK, customerDeleteRequestDto)));
     }
 
 

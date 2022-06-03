@@ -15,6 +15,9 @@ import com.ssg.ssgproduct.domain.product.enums.DiscountType;
 import com.ssg.ssgproduct.domain.product.enums.ProductType;
 import com.ssg.ssgproduct.domain.promotion.Promotion;
 import com.ssg.ssgproduct.domain.promotion.PromotionRepository;
+import com.ssg.ssgproduct.exception.ResponseCode;
+import com.ssg.ssgproduct.exception.exceptioncase.NoAvailPromotionException;
+import com.ssg.ssgproduct.exception.exceptioncase.ProductNotFoundException;
 import com.ssg.ssgproduct.util.CustomResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
@@ -38,22 +41,26 @@ public class ProductService {
     @Transactional
     public ResponseEntity<Object> save(ProductPostRequestDto productPostDto) {
         Product product = productRepository.save(productPostDto.toEntity());
-        return CustomResponse.create("OK", HttpStatus.OK, product.convertToResponseDto());
+        return CustomResponse.create(ResponseCode.OK, product.convertToResponseDto());
     }
 
     @Transactional
     public ResponseEntity<Object> delete(ProductDeleteRequestDto productDeleteDto) {
-        Product product = productRepository.findById(productDeleteDto.getProductId()).orElseThrow();
+        Product product = productRepository.findById(productDeleteDto.getProductId()).orElseThrow(
+                () -> new ProductNotFoundException(ResponseCode.PRODUCT_NOT_FOUND)
+        );
         productRepository.delete(product);
-        return CustomResponse.create("OK", HttpStatus.OK, productDeleteDto);
+        return CustomResponse.create(ResponseCode.OK, productDeleteDto);
     }
 
     public ResponseEntity<Object> findAllRelatedPromotion(ProductGetRequestDto productGetDto) {
-        Product product = productRepository.findById(productGetDto.getProductId()).orElseThrow();
+        Product product = productRepository.findById(productGetDto.getProductId()).orElseThrow(
+                () -> new ProductNotFoundException(ResponseCode.PRODUCT_NOT_FOUND)
+        );
         List<Promotion> promotionList = promotionRepository.findAllByRelatedProductId(
                 productGetDto.getProductId(), LocalDate.now());
 
-        return CustomResponse.create("OK", HttpStatus.OK, findBestFitPromotion(promotionList, product));
+        return CustomResponse.create(ResponseCode.OK, findBestFitPromotion(promotionList, product));
     }
 
     // 할인 적용 시 최저 금액을 가지는 프로모션 검색
@@ -86,7 +93,7 @@ public class ProductService {
 
         // 적용할 수 있는 프로모션 없음
         if (discountedPrice == Long.MAX_VALUE) {
-            throw new RuntimeException();
+            throw new NoAvailPromotionException(ResponseCode.NO_AVAIL_PROMOTION);
         }
 
         Map<String, Long> price = new HashMap<>();
