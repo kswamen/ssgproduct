@@ -10,5 +10,5 @@ import java.time.LocalDate;
 @Builder
 @ToString
 public class PromotionDeleteRequestDto {
-    public Long promotionId;
+    private Long promotionId;
 }

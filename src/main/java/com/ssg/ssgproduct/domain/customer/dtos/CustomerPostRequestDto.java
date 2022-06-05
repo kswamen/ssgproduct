@@ -11,12 +11,12 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class CustomerPostRequestDto {
-    public String customerName;
-    public String customerType;
-    public String customerStat;
+    private String customerName;
+    private String customerType;
+    private String customerStat;
 
-    public CustomerType convertedCustomerType;
-    public CustomerStat convertedCustomerStat;
+    private CustomerType convertedCustomerType;
+    private CustomerStat convertedCustomerStat;
 
     public void convert() {
         convertedCustomerType = CustomerType.nameOf(customerType);

@@ -53,7 +53,7 @@ public class CustomerService {
     // 소비자가 구매할 수 있는 상품 목록
     // 일반 소비자는 기업상품을 조회할 수 없음
     public ResponseEntity<Object> findAllAvailProduct(CustomerGetRequestDto customerGetDto) {
-        Customer customer = customerRepository.findById(customerGetDto.customerId).orElseThrow(
+        Customer customer = customerRepository.findById(customerGetDto.getCustomerId()).orElseThrow(
                 () -> new CustomerNotFoundException(ResponseCode.CUSTOMER_NOT_FOUND)
         );
         if (customer.isExited()) {

@@ -8,5 +8,5 @@ import lombok.*;
 @Builder
 @ToString
 public class PromotionGetRequestDto {
-    public Long promotionId;
+    private Long promotionId;
 }

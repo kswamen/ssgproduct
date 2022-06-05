@@ -13,15 +13,15 @@ import java.time.LocalDate;
 @Builder
 @ToString
 public class ProductPostRequestDto {
-    public String productName;
-    public String productType;
-    public Long productPrice;
-    public String productDisplayStartDate;
-    public String productDisplayEndDate;
+    private String productName;
+    private String productType;
+    private Long productPrice;
+    private String productDisplayStartDate;
+    private String productDisplayEndDate;
 
-    public ProductType convertedItemType;
-    public LocalDate convertedItemDisplayStartDate;
-    public LocalDate convertedItemDisplayEndDate;
+    private ProductType convertedItemType;
+    private LocalDate convertedItemDisplayStartDate;
+    private LocalDate convertedItemDisplayEndDate;
 
     public void convert() {
         convertedItemType = ProductType.nameOf(productType);

@@ -9,10 +9,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductPostResponseDto {
-    public Long productId;
-    public String productName;
-    public String productType;
-    public Long productPrice;
-    public LocalDate productDisplayStartDate;
-    public LocalDate productDisplayEndDate;
+    private Long productId;
+    private String productName;
+    private String productType;
+    private Long productPrice;
+    private LocalDate productDisplayStartDate;
+    private LocalDate productDisplayEndDate;
 }

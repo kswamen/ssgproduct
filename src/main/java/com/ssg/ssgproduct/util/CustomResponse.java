@@ -13,6 +13,7 @@ public class CustomResponse {
         map.put("message", responseCode.getMessage());
         map.put("status", responseCode.getStatus());
         map.put("code", responseCode.getCode());
+        map.put("specificCode", responseCode.getSpecificCode());
         map.put("data", responseObj);
 
         return new ResponseEntity<>(map, responseCode.getStatus());

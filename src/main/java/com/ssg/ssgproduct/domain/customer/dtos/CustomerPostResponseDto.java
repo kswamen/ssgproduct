@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerPostResponseDto {
-    public Long customerId;
-    public String customerName;
-    public String customerType;
-    public String customerStat;
+    private Long customerId;
+    private String customerName;
+    private String customerType;
+    private String customerStat;
 }

@@ -13,14 +13,14 @@ import java.time.LocalDate;
 @Builder
 @ToString
 public class PromotionPostRequestDto {
-    public String promotionNm;
-    public Long discountAmount;
-    public Float discountRate;
-    public String promotionStartDate;
-    public String promotionEndDate;
+    private String promotionNm;
+    private Long discountAmount;
+    private Float discountRate;
+    private String promotionStartDate;
+    private String promotionEndDate;
 
-    public LocalDate convertedPromotionStartDate;
-    public LocalDate convertedPromotionEndDate;
+    private LocalDate convertedPromotionStartDate;
+    private LocalDate convertedPromotionEndDate;
 
     public void convert() {
         convertedPromotionStartDate = CustomLocalDateConverter.convert(promotionStartDate);

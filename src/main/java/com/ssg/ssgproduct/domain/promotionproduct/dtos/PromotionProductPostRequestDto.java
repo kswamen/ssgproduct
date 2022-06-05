@@ -8,6 +8,6 @@ import lombok.*;
 @Builder
 @ToString
 public class PromotionProductPostRequestDto {
-    public Long promotionId;
-    public Long productId;
+    private Long promotionId;
+    private Long productId;
 }

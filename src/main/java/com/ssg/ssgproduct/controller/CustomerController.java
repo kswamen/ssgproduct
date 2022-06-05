@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class CustomerController {
     private final CustomerService customerService;
-    private final ProductService productService;
 
     @GetMapping("")
-    public ResponseEntity<Object> readUser(@RequestBody CustomerGetRequestDto customerGetDto) {
+    public ResponseEntity<Object> readUser(CustomerGetRequestDto customerGetDto) {
         return customerService.find(customerGetDto);
     }
 
     @GetMapping("/availProducts")
-    public ResponseEntity<Object> readAvailProducts(@RequestBody CustomerGetRequestDto customerGetDto) {
+    public ResponseEntity<Object> readAvailProducts(CustomerGetRequestDto customerGetDto) {
         return customerService.findAllAvailProduct(customerGetDto);
     }
 

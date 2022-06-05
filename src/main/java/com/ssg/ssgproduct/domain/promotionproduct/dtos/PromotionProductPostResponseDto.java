@@ -10,6 +10,6 @@ import lombok.*;
 @Builder
 @ToString
 public class PromotionProductPostResponseDto {
-    public Promotion promotion;
-    public Product product;
+    private Promotion promotion;
+    private Product product;
 }

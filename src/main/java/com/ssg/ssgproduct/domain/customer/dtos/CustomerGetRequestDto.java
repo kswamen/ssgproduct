@@ -10,5 +10,5 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerGetRequestDto {
-    public Long customerId;
+    private Long customerId;
 }

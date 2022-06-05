@@ -15,8 +15,8 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductAndRelatedPromotionResponseDto {
-    public String appliedDiscountType;
-    public Map<String, Long> price;
-    public Product product;
-    public Promotion promotion;
+    private String appliedDiscountType;
+    private Map<String, Long> price;
+    private Product product;
+    private Promotion promotion;
 }

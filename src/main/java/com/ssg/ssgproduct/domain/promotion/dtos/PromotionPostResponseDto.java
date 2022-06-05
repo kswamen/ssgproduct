@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @Builder
 @ToString
 public class PromotionPostResponseDto {
-    public String promotionNm;
-    public Long discountAmount;
-    public Float discountRate;
-    public LocalDate promotionStartDate;
-    public LocalDate promotionEndDate;
+    private String promotionNm;
+    private Long discountAmount;
+    private Float discountRate;
+    private LocalDate promotionStartDate;
+    private LocalDate promotionEndDate;
 }

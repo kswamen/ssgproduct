@@ -15,7 +15,7 @@ public class PromotionController {
     private final PromotionService promotionService;
 
     @GetMapping("")
-    public ResponseEntity<Object> readPromotion(@RequestBody PromotionGetRequestDto promotionGetDto) {
+    public ResponseEntity<Object> readPromotion(PromotionGetRequestDto promotionGetDto) {
         return promotionService.find(promotionGetDto);
     }
 

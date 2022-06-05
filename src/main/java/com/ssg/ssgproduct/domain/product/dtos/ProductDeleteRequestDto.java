@@ -6,5 +6,5 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDeleteRequestDto {
-    public Long productId;
+    private Long productId;
 }
