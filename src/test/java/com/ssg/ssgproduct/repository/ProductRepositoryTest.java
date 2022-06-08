@@ -51,7 +51,8 @@ class ProductRepositoryTest {
 
         // when
         Specification<Product> spec = (root, query, criteriaBuilder) -> null;
-        spec = spec.and(ProductSpecs.withoutProductType(ProductType.ENTERPRISE));
+        spec = spec.and(ProductSpecs.withProductType(ProductType.NORMAL));
+//        spec = spec.or(ProductSpecs.withProductType(ProductType.ENTERPRISE));
         spec = spec.and(ProductSpecs.withDateCondition());
         List<Product> result = productRepository.findAll(spec);
 

@@ -106,7 +106,7 @@ class ProductServiceTest {
         return ProductPostRequestDto.builder()
                 .productName("test")
                 .productPrice(2000L)
-                .productType("test")
+                .productType("일반")
                 .productDisplayStartDate("2022-05-20")
                 .productDisplayEndDate("2039-04-14")
                 .build();

@@ -3,6 +3,7 @@ package com.ssg.ssgproduct.domain.customer.dtos;
 import com.ssg.ssgproduct.domain.customer.Customer;
 import com.ssg.ssgproduct.domain.customer.enums.CustomerStat;
 import com.ssg.ssgproduct.domain.customer.enums.CustomerType;
+import com.ssg.ssgproduct.util.CustomLocalDateConverter;
 import lombok.*;
 
 @Getter
@@ -24,7 +25,6 @@ public class CustomerPostRequestDto {
     }
 
     public Customer toEntity() {
-//        convert();
         return Customer.builder()
                 .customerName(customerName)
                 .customerType(convertedCustomerType)

@@ -1,18 +1,12 @@
 package com.ssg.ssgproduct.service;
 
-import com.ssg.ssgproduct.domain.customer.Customer;
-import com.ssg.ssgproduct.domain.customer.CustomerRepository;
-import com.ssg.ssgproduct.domain.customer.dtos.CustomerGetRequestDto;
-import com.ssg.ssgproduct.domain.customer.enums.CustomerType;
 import com.ssg.ssgproduct.domain.product.Product;
 import com.ssg.ssgproduct.domain.product.ProductRepository;
-import com.ssg.ssgproduct.domain.product.ProductSpecs;
 import com.ssg.ssgproduct.domain.product.dtos.ProductAndRelatedPromotionResponseDto;
 import com.ssg.ssgproduct.domain.product.dtos.ProductDeleteRequestDto;
 import com.ssg.ssgproduct.domain.product.dtos.ProductGetRequestDto;
 import com.ssg.ssgproduct.domain.product.dtos.ProductPostRequestDto;
 import com.ssg.ssgproduct.domain.product.enums.DiscountType;
-import com.ssg.ssgproduct.domain.product.enums.ProductType;
 import com.ssg.ssgproduct.domain.promotion.Promotion;
 import com.ssg.ssgproduct.domain.promotion.PromotionRepository;
 import com.ssg.ssgproduct.exception.ResponseCode;
@@ -20,8 +14,6 @@ import com.ssg.ssgproduct.exception.exceptioncase.NoAvailPromotionException;
 import com.ssg.ssgproduct.exception.exceptioncase.ProductNotFoundException;
 import com.ssg.ssgproduct.util.CustomResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +28,6 @@ import java.util.Map;
 public class ProductService {
     private final ProductRepository productRepository;
     private final PromotionRepository promotionRepository;
-    private final CustomerRepository customerRepository;
 
     @Transactional
     public ResponseEntity<Object> save(ProductPostRequestDto productPostDto) {

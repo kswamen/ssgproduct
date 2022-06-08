@@ -7,6 +7,7 @@ import com.ssg.ssgproduct.domain.customer.dtos.CustomerPostRequestDto;
 import com.ssg.ssgproduct.domain.product.ProductRepository;
 import com.ssg.ssgproduct.exception.ResponseCode;
 import com.ssg.ssgproduct.util.CustomResponse;
+import com.ssg.ssgproduct.util.EntityCreator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +19,6 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Optional;
 
-import static com.ssg.ssgproduct.util.EntityCreator.createUser;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -39,7 +39,7 @@ class CustomerServiceTest {
     @DisplayName("Service - 유저 생성")
     public void save() {
         // given
-        Customer user = createUser();
+        Customer user = EntityCreator.createCustomer();
         when(customerRepository.save(any())).thenReturn(user);
 
         // when
@@ -55,7 +55,7 @@ class CustomerServiceTest {
     public void delete() {
         // given
         CustomerDeleteRequestDto customerDeleteRequestDto = new CustomerDeleteRequestDto(1L);
-        Customer user = createUser();
+        Customer user = EntityCreator.createCustomer();
         when(customerRepository.findById(any())).thenReturn(Optional.ofNullable(user));
 
         // when

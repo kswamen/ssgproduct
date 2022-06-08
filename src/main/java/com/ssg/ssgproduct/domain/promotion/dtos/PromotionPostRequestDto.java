@@ -2,6 +2,8 @@ package com.ssg.ssgproduct.domain.promotion.dtos;
 
 import com.ssg.ssgproduct.domain.promotion.Promotion;
 import com.ssg.ssgproduct.domain.promotionproduct.PromotionProduct;
+import com.ssg.ssgproduct.exception.ResponseCode;
+import com.ssg.ssgproduct.exception.exceptioncase.StartDateAfterEndDateException;
 import com.ssg.ssgproduct.util.CustomLocalDateConverter;
 import lombok.*;
 
@@ -25,6 +27,9 @@ public class PromotionPostRequestDto {
     public void convert() {
         convertedPromotionStartDate = CustomLocalDateConverter.convert(promotionStartDate);
         convertedPromotionEndDate = CustomLocalDateConverter.convert(promotionEndDate);
+        if (!CustomLocalDateConverter.isValidStartAndEndDate(convertedPromotionStartDate, convertedPromotionEndDate)) {
+            throw new StartDateAfterEndDateException(ResponseCode.STARTDATE_AFTER_ENDDATE);
+        }
     }
 
     public Promotion toEntity() {

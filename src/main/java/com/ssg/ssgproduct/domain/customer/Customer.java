@@ -45,7 +45,8 @@ public class Customer {
                 .customerId(CustomerId)
                 .customerName(CustomerName)
                 .customerType(CustomerType.getUserTypeString())
-                .customerStat(CustomerStat.getUserStatString()).build();
+                .customerStat(CustomerStat.getUserStatString())
+                .build();
     }
 
     public boolean isExited() {

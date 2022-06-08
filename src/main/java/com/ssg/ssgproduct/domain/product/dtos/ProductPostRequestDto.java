@@ -2,6 +2,8 @@ package com.ssg.ssgproduct.domain.product.dtos;
 
 import com.ssg.ssgproduct.domain.product.Product;
 import com.ssg.ssgproduct.domain.product.enums.ProductType;
+import com.ssg.ssgproduct.exception.ResponseCode;
+import com.ssg.ssgproduct.exception.exceptioncase.StartDateAfterEndDateException;
 import com.ssg.ssgproduct.util.CustomLocalDateConverter;
 import lombok.*;
 
@@ -27,6 +29,10 @@ public class ProductPostRequestDto {
         convertedItemType = ProductType.nameOf(productType);
         convertedItemDisplayStartDate = CustomLocalDateConverter.convert(productDisplayStartDate);
         convertedItemDisplayEndDate = CustomLocalDateConverter.convert(productDisplayEndDate);
+
+        if (!CustomLocalDateConverter.isValidStartAndEndDate(convertedItemDisplayStartDate, convertedItemDisplayEndDate)) {
+            throw new StartDateAfterEndDateException(ResponseCode.STARTDATE_AFTER_ENDDATE);
+        }
     }
 
     public Product toEntity() {

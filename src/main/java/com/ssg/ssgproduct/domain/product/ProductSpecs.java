@@ -10,19 +10,18 @@ import java.util.List;
 
 
 public class ProductSpecs {
-    public static Specification<Product> withoutProductType(ProductType type) {
-        return (Specification<Product>) ((root, query, builder) ->
-                builder.notEqual(root.get("ProductType"), type)
-        );
+    public static Specification<Product> withProductType(ProductType type) {
+        return (root, query, builder) ->
+                builder.equal(root.get("ProductType"), type);
     }
 
     public static Specification<Product> withDateCondition() {
         LocalDate nowDate = LocalDate.now();
-        return (Specification<Product>) ((root, query, builder) -> {
+        return (root, query, builder) -> {
             List<Predicate> predicate = new ArrayList<>();
             predicate.add(builder.lessThanOrEqualTo(root.get("ProductDisplayStartTime"), nowDate));
             predicate.add(builder.greaterThanOrEqualTo(root.get("ProductDisplayEndTime"), nowDate));
             return builder.and(predicate.toArray(new Predicate[0]));
-        });
+        };
     }
 }

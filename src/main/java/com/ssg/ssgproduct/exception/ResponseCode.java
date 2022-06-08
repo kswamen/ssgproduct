@@ -13,6 +13,9 @@ public enum ResponseCode {
 
     // 400
     EXITED_CUSTOMER(HttpStatus.BAD_REQUEST, 404, "탈퇴한 회원은 상품 조회가 불가능합니다.", "EXITED_CUSTOMER"),
+    NO_AVAIL_ENUM_VALUE(HttpStatus.BAD_REQUEST, 404, "적용 가능한 카테고리 목록인지 확인하세요.", "NO_AVAIL_ENUM_VALUE"),
+    INVALID_DATETIME_FORMAT(HttpStatus.BAD_REQUEST, 404, "날짜 형식이 올바른지 확인하세요(yyyy-MM-dd).", "INVALID_DATETIME_FORMAT"),
+    STARTDATE_AFTER_ENDDATE(HttpStatus.BAD_REQUEST, 404, "시작 날짜는 종료 날짜보다 앞서야 합니다.", "STARTDATE_AFTER_ENDDATE"),
 
     // 500
     PRODUCT_NOT_FOUND(HttpStatus.INTERNAL_SERVER_ERROR, 500, "부합하는 상품이 존재하지 않습니다.", "PRODUCT_NOT_FOUND"),

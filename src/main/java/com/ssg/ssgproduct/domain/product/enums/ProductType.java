@@ -1,5 +1,7 @@
 package com.ssg.ssgproduct.domain.product.enums;
 
+import com.ssg.ssgproduct.exception.ResponseCode;
+import com.ssg.ssgproduct.exception.exceptioncase.NoAvailEnumValueException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -17,6 +19,6 @@ public enum ProductType {
                 return value;
             }
         }
-        return null;
+        throw new NoAvailEnumValueException(ResponseCode.NO_AVAIL_ENUM_VALUE);
     }
 }

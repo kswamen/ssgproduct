@@ -2,8 +2,6 @@ package com.ssg.ssgproduct.repository;
 
 import com.ssg.ssgproduct.domain.customer.Customer;
 import com.ssg.ssgproduct.domain.customer.CustomerRepository;
-import com.ssg.ssgproduct.util.EntityCreator;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ class CustomerRepositoryTest {
     @DisplayName("Repository - 유저 생성")
     public void save() {
         // given
-        Customer user = createUser();
+        Customer user = createCustomer();
 
         // when
         Customer result = customerRepository.save(user);
@@ -42,7 +40,7 @@ class CustomerRepositoryTest {
     @DisplayName("Repository - 유저 삭제")
     public void delete() {
         // given
-        Customer user = createUser();
+        Customer user = createCustomer();
 
         // when
         customerRepository.save(user);

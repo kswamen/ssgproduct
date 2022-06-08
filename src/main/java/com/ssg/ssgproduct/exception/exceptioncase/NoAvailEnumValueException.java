@@ -1,0 +1,14 @@
+package com.ssg.ssgproduct.exception.exceptioncase;
+
+import com.ssg.ssgproduct.exception.ResponseCode;
+import lombok.Getter;
+
+@Getter
+public class NoAvailEnumValueException extends RuntimeException {
+    private final ResponseCode responseCode;
+
+    public NoAvailEnumValueException(ResponseCode responseCode) {
+        super(responseCode.getMessage());
+        this.responseCode = responseCode;
+    }
+}

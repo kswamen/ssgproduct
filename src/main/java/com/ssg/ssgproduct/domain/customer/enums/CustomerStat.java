@@ -1,6 +1,8 @@
 package com.ssg.ssgproduct.domain.customer.enums;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ssg.ssgproduct.exception.ResponseCode;
+import com.ssg.ssgproduct.exception.exceptioncase.NoAvailEnumValueException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -19,6 +21,6 @@ public enum CustomerStat {
                 return value;
             }
         }
-        return null;
+        throw new NoAvailEnumValueException(ResponseCode.NO_AVAIL_ENUM_VALUE);
     }
 }

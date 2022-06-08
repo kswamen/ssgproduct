@@ -62,12 +62,13 @@ public class CustomerService {
         else {
             Specification<Product> spec = (root, query, criteriaBuilder) -> null;
             spec = spec.and(ProductSpecs.withDateCondition());
-            if (customer.getCustomerType().equals(CustomerType.NORMAL)) {
-                spec = spec.and(ProductSpecs.withoutProductType(ProductType.ENTERPRISE));
+            spec = spec.and(ProductSpecs.withProductType(ProductType.NORMAL));
+            if (customer.getCustomerType().equals(CustomerType.ENTERPRISE)) {
+                spec = spec.or(ProductSpecs.withProductType(ProductType.ENTERPRISE));
             }
 
             List<Product> productList = productRepository.findAll(spec);
-            return CustomResponse.create(ResponseCode.OK, productList);
+            return CustomResponse.create(ResponseCode.OK, productList.stream().map(Product::convertToResponseDto));
         }
     }
 }
